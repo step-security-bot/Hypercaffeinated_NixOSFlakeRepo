@@ -18,7 +18,7 @@
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXROOT";
-      fsType = "bcachefs";
+      fsType = "btrfs";
     };
     "/boot" = {
       device = "dev/disk/by-label/NIXBOOT";
@@ -26,6 +26,11 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
   };
+
+  swapDevices = [ {
+    device = "/var/lib/swapfile";
+    size = 32*1024;
+  } ];
 
   networking = {
     useDHCP = lib.mkDefault true;
