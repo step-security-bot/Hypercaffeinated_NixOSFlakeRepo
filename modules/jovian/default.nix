@@ -3,6 +3,7 @@
 {
 
   imports = [
+    ./chaotic.nix
     ./jovian.nix
   ];
 
