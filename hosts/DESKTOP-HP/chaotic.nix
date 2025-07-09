@@ -16,7 +16,7 @@
     pkgs.wayland-scanner_git
     pkgs.wayland-protocols_git
     pkgs.vulkanPackages_latest.vulkan-volk
-    pkgs.vulkanPackages_latest.vulkan-validation-layers
+    #pkgs.vulkanPackages_latest.vulkan-validation-layers
     pkgs.vulkanPackages_latest.vulkan-utility-libraries
     pkgs.vulkanPackages_latest.vulkan-tools
     pkgs.vulkanPackages_latest.vulkan-loader
