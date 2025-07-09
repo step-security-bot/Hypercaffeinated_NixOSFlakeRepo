@@ -5,7 +5,7 @@
   jovian = {
     steam = {
       enable = true;
-      autoStart = true;
+      #autoStart = true;
     };
     devices = {
       steamdeck = {
