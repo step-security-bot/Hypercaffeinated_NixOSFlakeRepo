@@ -6,6 +6,7 @@
     mesa-git = {
       enable = true;
     };
+  };
   
   environment.systemPackages = [ 
     pkgs.zed-editor_git
