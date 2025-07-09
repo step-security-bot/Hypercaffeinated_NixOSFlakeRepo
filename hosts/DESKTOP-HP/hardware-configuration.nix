@@ -18,7 +18,7 @@
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXROOT";
-      fsType = "bcachefs";
+      fsType = "ext4";
     };
     "/boot" = {
       device = "dev/disk/by-label/NIXBOOT";
