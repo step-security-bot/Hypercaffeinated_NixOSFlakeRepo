@@ -18,7 +18,7 @@
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-label/NIXROOT";
-      fsType = "btrfs";
+      fsType = "ext4";
     };
     "/boot" = {
       device = "dev/disk/by-label/NIXBOOT";
@@ -27,10 +27,10 @@
     };
   };
 
-  swapDevices = [ {
-    device = "/var/lib/swapfile";
-    size = 32*1024;
-  } ];
+  swapDevices = [ 
+    { device = "/var/lib/swapfile"; size = 32*1024; } 
+    { device = "/dev/disk/by-uuid/27891298-7253-46e5-8a36-833c05738425"; }
+  ];
 
   networking = {
     useDHCP = lib.mkDefault true;
