@@ -17,9 +17,10 @@
         enable = true;
       };
     };
-    appmenu-gtk3-module = {
-      enable = true;
-    };
   };
+  
+  environment.systemPackages = [ 
+    pkgs.nyx-generic-git-update
+  ];
   
 }
