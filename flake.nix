@@ -82,10 +82,12 @@
           modules = [
           # ----------------------------------------------------------
             {
-              environment.systemPackages = [ 
-                fh.packages.x86_64-linux.default
-                inputs.nix-software-center.packages.${system}.nix-software-center
-              ];
+              environment = {
+                systemPackages = [ 
+                  fh.packages.x86_64-linux.default
+                  inputs.nix-software-center.packages.x86_64-linux.nix-software-center
+                ];
+              };
             }
           # ----------------------------------------------------------
             determinate.nixosModules.default
@@ -114,10 +116,12 @@
           modules = [
           # ----------------------------------------------------------
             {
-              environment.systemPackages = [ 
-                fh.packages.x86_64-linux.default
-                inputs.nix-software-center.packages.${system}.nix-software-center
-              ];
+              environment = {
+                systemPackages = [ 
+                  fh.packages.x86_64-linux.default
+                  inputs.nix-software-center.packages.x86_64-linux.nix-software-center
+                ];
+              };
             }
           # ----------------------------------------------------------
             determinate.nixosModules.default
