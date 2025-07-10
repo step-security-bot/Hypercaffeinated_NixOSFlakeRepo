@@ -38,6 +38,9 @@ env:
 jobs:
   # This workflow contains a single job called "scan"
   scan:
+    permissions:
+      contents: read
+      security-events: write
     name: Scan
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
