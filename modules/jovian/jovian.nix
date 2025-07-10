@@ -32,7 +32,7 @@
       pkgs.jovian-chaotic.jupiter-fan-control
       pkgs.jovian-chaotic.jupiter-hw-support
       pkgs.jovian-chaotic.linux-firmware-jupiter
-      pkgs.jovian-chaotic.linux_jovian
+      #pkgs.jovian-chaotic.linux_jovian
       pkgs.jovian-chaotic.mangohud
       pkgs.jovian-chaotic.mesa-radeonsi-jupiter
       pkgs.jovian-chaotic.mesa-radv-jupiter
