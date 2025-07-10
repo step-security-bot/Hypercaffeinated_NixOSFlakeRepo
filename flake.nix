@@ -40,7 +40,7 @@
 # FLAKE OUTPUTS
 # ____________________________________________________________________
   
-  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, nixos-cosmic, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, nixos-cosmic, nix-software-center, ... }:
     
     let
       
