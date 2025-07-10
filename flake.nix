@@ -19,9 +19,6 @@
     fh = {
       url = "https://flakehub.com/f/DeterminateSystems/fh/*";
     };
-    flake-utils = {
-      url = "github:numtide/flake-utils";
-    };
     chaotic = {
       url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     };
@@ -43,7 +40,7 @@
 # FLAKE OUTPUTS
 # ____________________________________________________________________
   
-  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, flake-utils, chaotic, jovian, nixos-cosmic, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, nixos-cosmic, ... }:
     
     let
       
@@ -93,6 +90,7 @@
           # ----------------------------------------------------------
             determinate.nixosModules.default
             chaotic.nixosModules.default
+            jovian.nixosModules.default
           # ----------------------------------------------------------
             ./configuration.nix
           # ----------------------------------------------------------
