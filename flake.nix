@@ -31,16 +31,13 @@
     bcachefs-tools = {
       url = "github:koverstreet/bcachefs-tools";
     };
-    nix-software-center = {
-      url = "github:snowfallorg/nix-software-center";
-    };
   }; 
 
 # ____________________________________________________________________
 # FLAKE OUTPUTS
 # ____________________________________________________________________
   
-  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, nixos-cosmic, nix-software-center, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, nixos-cosmic, ... }:
     
     let
       
@@ -85,14 +82,12 @@
               environment = {
                 systemPackages = [ 
                   fh.packages.x86_64-linux.default
-                  inputs.nix-software-center.packages.x86_64-linux.nix-software-center
                 ];
               };
             }
           # ----------------------------------------------------------
             determinate.nixosModules.default
             chaotic.nixosModules.default
-            jovian.nixosModules.default
           # ----------------------------------------------------------
             ./configuration.nix
           # ----------------------------------------------------------
@@ -119,7 +114,6 @@
               environment = {
                 systemPackages = [ 
                   fh.packages.x86_64-linux.default
-                  inputs.nix-software-center.packages.x86_64-linux.nix-software-center
                 ];
               };
             }
