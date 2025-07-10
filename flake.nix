@@ -37,7 +37,7 @@
 # FLAKE OUTPUTS
 # ____________________________________________________________________
   
-  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, nixos-cosmic, ... }:
+  outputs = inputs@{ self, nixpkgs, flake-schemas, determinate, fh, chaotic, jovian, ... }:
     
     let
       
@@ -93,7 +93,7 @@
           # ----------------------------------------------------------
             ./hosts/NOTEBOOK-ACER/default.nix
           # ----------------------------------------------------------
-            ./modules/default.nix
+            ./modules/minimal/default.nix
           # ----------------------------------------------------------
             ./modules/cosmic/default.nix
           # ----------------------------------------------------------
@@ -126,7 +126,7 @@
           # ----------------------------------------------------------
             ./hosts/DESKTOP-HP/default.nix
           # ----------------------------------------------------------
-            ./modules/default.nix
+            ./modules/minimal/default.nix
           # ----------------------------------------------------------
             ./modules/jovian/default.nix
           # ----------------------------------------------------------
