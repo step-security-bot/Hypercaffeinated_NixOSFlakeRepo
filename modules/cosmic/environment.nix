@@ -60,6 +60,7 @@
         #pkgs.forecast
 
         pkgs.just
+        pkgs.gnumake
         #pkgs.rustc
         #pkgs.waylandpp
         #pkgs.wlr-protocols
