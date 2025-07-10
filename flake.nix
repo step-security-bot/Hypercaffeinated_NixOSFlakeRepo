@@ -115,7 +115,8 @@
           # ----------------------------------------------------------
             {
               environment.systemPackages = [ 
-                fh.packages.x86_64-linux.default 
+                fh.packages.x86_64-linux.default
+                inputs.nix-software-center.packages.${system}.nix-software-center
               ];
             }
           # ----------------------------------------------------------
