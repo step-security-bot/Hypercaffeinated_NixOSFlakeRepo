@@ -59,7 +59,7 @@
         #pkgs.libcosmicAppHook
         #pkgs.forecast
 
-        #pkgs.just
+        pkgs.just
         #pkgs.rustc
         #pkgs.waylandpp
         #pkgs.wlr-protocols
