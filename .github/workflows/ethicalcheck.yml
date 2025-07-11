@@ -53,6 +53,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+       - name: Harden the runner (Audit all outbound calls)
+         uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+         with:
+           egress-policy: audit
+
        - name: EthicalCheck  Free & Automated API Security Testing Service
          uses: apisec-inc/ethicalcheck-action@005fac321dd843682b1af6b72f30caaf9952c641
          with:
@@ -63,7 +68,7 @@ jobs:
           sarif-result-file: "ethicalcheck-results.sarif"
 
        - name: Upload sarif file to repository
-         uses: github/codeql-action/upload-sarif@v3
+         uses: github/codeql-action/upload-sarif@181d5eefc20863364f96762470ba6f862bdef56b # v3.29.2
          with:
           sarif_file: ./ethicalcheck-results.sarif
 
