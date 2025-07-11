@@ -11,6 +11,9 @@ on:
     branches: [ "main" ]
   schedule:
     - cron: '17 1 * * 6'
+permissions:
+  contents: read
+
 jobs:
   scan:
     permissions:
@@ -20,8 +23,13 @@ jobs:
       id-token: write # Used for keyless authentication to Endor Labs
     runs-on: ubuntu-latest
     steps:
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+      with:
+        egress-policy: audit
+
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
     #### Package Build Instructions
     ### Use this section to define the build steps used by your software package.
     ### Endor Labs builds your software for you where possible but the required build tools must be made available.
@@ -46,6 +54,6 @@ jobs:
         ci_run: "false"
         sarif_file: findings.sarif
     - name: Upload SARIF to github
-      uses: github/codeql-action/upload-sarif@v3
+      uses: github/codeql-action/upload-sarif@181d5eefc20863364f96762470ba6f862bdef56b # v3.29.2
       with:
         sarif_file: findings.sarif

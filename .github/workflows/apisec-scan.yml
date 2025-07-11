@@ -54,6 +54,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+       - name: Harden the runner (Audit all outbound calls)
+         uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+         with:
+           egress-policy: audit
+
        - name: APIsec scan
          uses: apisec-inc/apisec-run-scan@025432089674a28ba8fb55f8ab06c10215e772ea
          with:
@@ -66,6 +71,6 @@ jobs:
           # The name of the sarif format result file The file is written only if this property is provided.
           sarif-result-file: "apisec-results.sarif"
        - name: Import results
-         uses: github/codeql-action/upload-sarif@v3
+         uses: github/codeql-action/upload-sarif@181d5eefc20863364f96762470ba6f862bdef56b # v3.29.2
          with:
           sarif_file: ./apisec-results.sarif
