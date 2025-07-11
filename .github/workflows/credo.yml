@@ -41,7 +41,12 @@ jobs:
         otp: [version]
         elixir: [version]
     steps:
-      - uses: actions/checkout@v4
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: erlef/setup-beam@988e02bfe678367a02564f65ca2e37726dc0268f
         with:
           otp-version: ${{matrix.otp}}
@@ -55,7 +60,7 @@ jobs:
       - name: credo-scan
         run: mix credo --format=sarif > credo_output.sarif
       - name: upload sarif
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@181d5eefc20863364f96762470ba6f862bdef56b # v3.29.2
         with:
           # Path to SARIF file relative to the root of the repository
           sarif_file: credo_output.sarif

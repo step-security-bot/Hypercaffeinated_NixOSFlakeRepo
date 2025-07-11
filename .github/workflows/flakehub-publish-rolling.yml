@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - "main"
+permissions:
+  contents: read
+
 jobs:
   flakehub-publish:
     runs-on: "ubuntu-latest"
@@ -10,9 +13,14 @@ jobs:
       id-token: "write"
       contents: "read"
     steps:
-      - uses: "actions/checkout@v4"
-      - uses: "DeterminateSystems/determinate-nix-action@v3"
-      - uses: "DeterminateSystems/flakehub-push@main"
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@6c439dc8bdf85cadbbce9ed30d1c7b959517bc49 # v2.12.2
+        with:
+          egress-policy: audit
+
+      - uses: "actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2"
+      - uses: "DeterminateSystems/determinate-nix-action@9770a4910c6cacf42ba4e6de9b689ac8d66326df # v3.8.0"
+      - uses: "DeterminateSystems/flakehub-push@1dd8eaf5124d8d4d24bc2066ed796dabc8cfebb6 # main"
         with:
           name: "Hypercaffeinated/NixOSFlakeRepo"
           rolling: true
